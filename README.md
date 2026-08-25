@@ -1,111 +1,85 @@
 # Proyecto 1 - Billboard Hot 100
 
 Universidad Nacional  
-Curso: Arquitectura de Informacion  
-Proyecto 1  
-Codigo: 402630177
+Escuela de Informática  
+Arquitectura de Información
+
+**Estudiante:** Kendall David Fallas Mena  
+**Cédula:** 402630177
 
 ## Descripcion
 
-Sitio en Nuxt 4 para explorar un dataset grande del Billboard Hot 100. La informacion se organiza de forma cronologica:
+Sitio desarrollado con Nuxt para explorar el dataset historico Billboard Hot 100.
 
-**Decada - Año - Semana del ranking - Canciones**
+La organizacion principal del sitio es:
 
-El sitio incluye busqueda, paginacion, breadcrumbs, detalle de registros e imagenes con placeholder cuando no existe una URL valida.
+```text
+Década -> Año -> Fecha del ranking -> Registro
+```
+
+El proyecto tambien incorpora busqueda y paginacion para facilitar la navegacion del conjunto de datos.
 
 ## Dataset
 
-El dataset usado por el proyecto esta en:
+El archivo utilizado es:
 
 ```text
 dataset/hot100.csv
 ```
 
-Columnas esperadas:
+Corresponde al conjunto asignado Billboard Hot 100 e incluye informacion como fecha, cancion, artista, posicion, posicion de la semana anterior, mejor posicion, semanas en lista y URL de imagen.
 
-- `Date`
-- `Song`
-- `Artist`
-- `Rank`
-- `Last Week`
-- `Peak Position`
-- `Weeks in Charts`
-- `Image URL`
+## Sitio publicado
 
-No se debe cambiar la estructura del CSV original.
+**Netlify:**  
+https://6a8cf05b8870c00008db649f--proyecto1-billboard-hot100.netlify.app/
 
-## Requisitos
+## Ejecucion local
 
-1. Instalar Node.js 18 o superior.
-2. Instalar npm.
+Requisitos:
 
-## Ejecutar en desarrollo
+- Node.js 18 o superior
+- npm
 
-Desde la carpeta raiz del proyecto:
+Pasos:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abrir en el navegador:
+Luego abrir:
 
 ```text
 http://localhost:3000
 ```
 
-Antes de iniciar Nuxt, el proyecto prepara automaticamente los datos desde `dataset/hot100.csv`.
+El proyecto genera automaticamente los archivos necesarios a partir de `dataset/hot100.csv`.
 
-## Preparar y validar datos
-
-```bash
-npm run prepare:data
-npm run validate:project
-```
-
-Los archivos optimizados se generan en `public/data/`.
-
-## Build
+## Compilacion
 
 ```bash
 npm run build
 ```
 
-## Generar version final
+Para generar la version estatica:
 
 ```bash
 npm run generate
 ```
 
-Para Netlify, el proyecto ya incluye `netlify.toml` con:
-
-- comando: `npm run generate`
-- carpeta publicada: `.output/public`
-
-## URL de Netlify
-
-Pegar aqui la URL cuando el sitio este publicado:
+## Estructura basica
 
 ```text
-URL_DE_NETLIFY_AQUI
+app/
+  components/
+  pages/
+  assets/
+dataset/
+  hot100.csv
+scripts/
+nuxt.config.ts
+package.json
+netlify.toml
+README.md
 ```
-
-## Rutas principales
-
-- `/` inicio
-- `/charts` decadas
-- `/charts/[decade]` años de una decada
-- `/charts/[decade]/[year]` semanas y registros de un año
-- `/charts/[decade]/[year]/[date]` ranking de una semana
-- `/record/[id]` detalle de un registro
-- `/search` busqueda global
-- `/about` explicacion breve del sitio
-
-## No incluir en la entrega
-
-No subir estas carpetas generadas:
-
-- `node_modules`
-- `.nuxt`
-- `.output`
-- `dist`
